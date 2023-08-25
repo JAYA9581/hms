@@ -4,7 +4,6 @@
   
   
   import java.sql.Timestamp;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -19,7 +18,6 @@ import
   org.springframework.web.bind.annotation.PostMapping; import
   org.springframework.web.bind.annotation.RequestBody; import
   org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import
   org.springframework.web.bind.annotation.RequestParam; import
   org.springframework.web.bind.annotation.RestController;
@@ -28,7 +26,6 @@ import com.cg.hms.entities.Appointment;
 import com.cg.hms.entities.Nurse;
 import com.cg.hms.entities.Patient;
 import com.cg.hms.entities.Physician;
-import com.cg.hms.entities.Room;
 import com.cg.hms.exceptions.ValidationFailedException;
 import com.cg.hms.services.AppointmentServiceImpl;
   
@@ -108,7 +105,7 @@ public ResponseEntity <String> saveAppointment(@Valid @RequestBody Appointment a
 	  List<Patient> patients = service.getPatientsCheckedByNurse(nurseId);
 	  return new ResponseEntity<>(patients,HttpStatus.OK);
   }
-  @GetMapping(value="/patient/nurse/{patientId}/{nurseId")
+  @GetMapping(value="/patient/nurse/{patientId}/{nurseId}")
   public ResponseEntity<Patient> getPatientByPatientIdAndnurseId(@PathVariable Integer patientId,@PathVariable Integer nurseId){
 	  Patient patient = service.getPatientCheckedByNurse(nurseId,patientId);
 	  return new ResponseEntity<>(patient,HttpStatus.OK); 
@@ -137,8 +134,8 @@ public ResponseEntity <String> saveAppointment(@Valid @RequestBody Appointment a
   } //11
   
   @GetMapping(value = "/nurse/date")
-  public ResponseEntity<Physician> getPhysicianDetailByNurseIdAndDate(@RequestParam("physicianId") int physicianId,@RequestParam("date") Timestamp date) {
-  Physician physician = service.getPhysicianDetailByNurseIdAndDate(physicianId,date); 
+  public ResponseEntity<Physician> getPhysicianDetailByNurseIdAndDate(@RequestParam("nurseId") int nurseId,@RequestParam("date") Timestamp date) {
+  Physician physician = service.getPhysicianDetailByNurseIdAndDate(nurseId,date); 
   return new ResponseEntity<>(physician,HttpStatus.OK);
   } //12
   

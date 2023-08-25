@@ -9,14 +9,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.cg.hms.entities.Appointment;
-import com.cg.hms.entities.Nurse;
 import com.cg.hms.entities.Patient;
-import com.cg.hms.entities.Physician;
 
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, Integer>{
 
-	public List<Appointment> findByStartTime(Timestamp startdate);
+	public List<Appointment> findByStartTime(Timestamp startDate);
 	@Query("SELECT a from Appointment a WHERE a.patient.ssn=?1")
 	public List<Appointment> findByPatient(int patientId);
 	@Query("SELECT a from Appointment a WHERE a.physician.employeeId=?1")

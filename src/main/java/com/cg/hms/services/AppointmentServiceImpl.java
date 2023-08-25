@@ -1,7 +1,6 @@
 package com.cg.hms.services;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,17 +11,13 @@ import com.cg.hms.entities.Appointment;
 import com.cg.hms.entities.Nurse;
 import com.cg.hms.entities.Patient;
 import com.cg.hms.entities.Physician;
-import com.cg.hms.entities.Room;
-import com.cg.hms.entities.Stay;
 import com.cg.hms.exceptions.DuplicateEntryException;
 import com.cg.hms.exceptions.NoEntryException;
 import com.cg.hms.exceptions.NoRecordsException;
 import com.cg.hms.exceptions.NoSuchElementException;
 import com.cg.hms.repositories.AppointmentRepository;
-import com.cg.hms.repositories.NurseRepository;
+
 import com.cg.hms.repositories.PatientRepository;
-import com.cg.hms.repositories.PhysicianRepository;
-import com.cg.hms.repositories.StayRepository;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService{

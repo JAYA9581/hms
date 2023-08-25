@@ -1,8 +1,6 @@
 package com.cg.hms.services;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -11,7 +9,6 @@ import com.cg.hms.entities.Appointment;
 import com.cg.hms.entities.Nurse;
 import com.cg.hms.entities.Patient;
 import com.cg.hms.entities.Physician;
-import com.cg.hms.entities.Room;
 
 @Service
 public interface AppointmentService {
